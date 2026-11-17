@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+actor Пользователь
+rectangle Калькулятор {
+ usecase "Ввести операнды" as A
+ usecase "Сложить" as B
+ usecase "Разделить" as C
+ usecase "Показать ошибку" as D
+}
+Пользователь --> A
+Пользователь --> B
+Пользователь --> C
+B .> D : <<extend>>
+C .> D : <<extend>>
+@enduml

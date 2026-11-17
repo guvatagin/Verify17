@@ -1,0 +1,12 @@
+// Фрагмент RFT-скрипта: имена объектов заменяются на реальные объекты записи
+String customerName = "Test User";
+nameCombo().click();
+nameCombo().click(atText(customerName));
+ok().click();
+String actualName = name().getText();
+com.ibm.xtq.common.utils.Assert.throwError(
+    customerName.equals(actualName),
+    "Ожидалось имя: " + customerName + ", получено: " + actualName);
+
+// Verification point для таблицы заказов:
+ordersTable().performTest(ordersTable_selectedVP());
