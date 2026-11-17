@@ -1,3 +1,4 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Verify17.LR3;
 namespace Verify17.LR3.Tests;
