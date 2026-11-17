@@ -6,7 +6,7 @@
 |---|---|---|
 | LR1 | GitHub, спецификация, black-box | документация |
 | LR2 | Java/JUnit 5 | `cd LR2-JUnit && mvn test` |
-| LR3 | .NET/MSTest | `dotnet test LR3-DotNet/Calculator.Tests.csproj` |
+| LR3 | .NET/MSTest | `dotnet test LR3-DotNet/tests/Calculator.Tests/Calculator.Tests.csproj` |
 | LR4 | C++/GoogleTest/CMake | `cmake -S LR4-GoogleTest -B build && cmake --build build && ctest --test-dir build` |
 | LR5 | TDD | `cd LR5-TDD && mvn test` |
 | LR6 | BDD/Cucumber | `cd LR6-BDD && mvn test` |
