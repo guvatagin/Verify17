@@ -1,0 +1,43 @@
+name: Verify laboratory projects
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: JUnit LR2
+        run: mvn -q -f LR2-JUnit/pom.xml test
+      - name: TDD LR5
+        run: mvn -q -f LR5-TDD/pom.xml test
+      - name: BDD LR6
+        run: mvn -q -f LR6-BDD/pom.xml test
+
+  dotnet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: MSTest LR3
+        run: dotnet test LR3-DotNet/Calculator.Tests.csproj
+
+  cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S LR4-GoogleTest -B LR4-GoogleTest/build
+      - name: Build
+        run: cmake --build LR4-GoogleTest/build
+      - name: Test
+        run: ctest --test-dir LR4-GoogleTest/build --output-on-failure
