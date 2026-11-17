@@ -1,0 +1,10 @@
+target/
+*.class
+bin/
+obj/
+.vs/
+.idea/
+*.user
+build/
+TestResults/
+node_modules/
